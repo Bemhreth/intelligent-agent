@@ -29,5 +29,5 @@
   
   Next steps:
 
-- We have discussed our approach, and will continue to implement the agent and model classes, and the `RuleMatch()` function discuss in class will use 
-semantic tabuleax and other helper function to determine and update the next position of the agent. 
+- We have discussed our approach, and will continue to implement the `agent`,  `model classes`, and the `RuleMatch()` function as discuss in class.
+- We will use semantic tabuleax and other helper function to determine and update the next position of the agent. 
