@@ -27,9 +27,8 @@ void pop1()
     cont2[top1--];
 }
 typedef char cont[100] ;
-char *main_converter()
-{
-    char x[100];
+char *main_converter(char x[100])
+{;
     for (int i = 0; i < strlen(x); i++)
     {
          if (x[i] == '(')
