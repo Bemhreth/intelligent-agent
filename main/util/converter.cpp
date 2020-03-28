@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string.h>
 #include <string>
+#include "converter.hpp"
 using namespace std;
 
 
@@ -9,7 +10,6 @@ char cont1[100];
 char cont2[100];
 void push(char num)
 {
-
     top++;
     cont1[top] = num;
 }
@@ -26,31 +26,14 @@ void pop1()
 {
     cont2[top1--];
 }
-void disp()
-{
-    for (int i = 0; i <= top; i++)
-    {
-        cout << cont1[i];
-    }
-}
-void disp1()
-{
-    for (int i = top1; i >= 0; i--)
-    {
-        cout << cont2[i];
-    }
-}
-int main()
+typedef char cont[100] ;
+char *main_converter()
 {
     char x[100];
-    cout << "enter the statement: ";
-    cin >> x;
-
     for (int i = 0; i < strlen(x); i++)
     {
          if (x[i] == '(')
         {
-
             while (x[i] != ')')
             {
                 if (x[i] == '(')
@@ -150,7 +133,5 @@ int main()
         else
             pop1();
     }
-    disp();
-    disp1();
-    return 0;
+    return cont1;
 }
