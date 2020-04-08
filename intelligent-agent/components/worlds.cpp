@@ -6,10 +6,8 @@
 using namespace std;
 
 
-// void worlds::worlds(room world[3][3])
-int main()
+void worlds::worlds(room world[3][3])
 {
-    room world[3][3];
     int c = 0, m = 0;
     srand(time(0));
     vector<int> v;
@@ -125,5 +123,4 @@ int main()
         }
         cout<<endl;
     }
-return 0;
 }
