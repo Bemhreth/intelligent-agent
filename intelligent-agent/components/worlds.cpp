@@ -6,13 +6,14 @@
 using namespace std;
 
 
+// void worlds::worlds(room world[3][3])
 int main()
 {
+    room world[3][3];
     int c = 0, m = 0;
     srand(time(0));
     vector<int> v;
     rooms r;
-    room world[3][3];
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
@@ -80,6 +81,43 @@ int main()
             r.set_gold(world[v[i]][v[i + 1]]);
         }
         m++;
+    }
+    if(r.isWumpus(world[1][1])){
+        r.remove_Wumpus(world[1][1]);
+        r.remove_stinch(world[1][2]);
+        r.remove_stinch(world[2][1]);
+    }
+     else if(r.isPit(world[1][1])){
+        r.remove_pit(world[1][1]);
+        r.remove_breath(world[1][2]);
+        r.remove_breath(world[2][1]);
+    }
+    else if(r.isBreath(world[1][1])){
+        r.remove_breath(world[1][1]);
+        if(r.isPit(world[1][2])){
+            r.remove_pit(world[1][2]);
+            r.remove_breath(world[2][2]);
+            r.remove_breath(world[1][3]);
+        }
+        else if(r.isPit(world[2][1])){
+            r.remove_breath(world[3][1]);
+            r.remove_breath(world[2][2]);
+        }
+    }
+     else if(r.isStinch(world[1][1])){
+        r.remove_stinch(world[1][1]);
+        if(r.isWumpus(world[1][2])){
+            r.remove_Wumpus(world[1][2]);
+            r.remove_stinch(world[2][2]);
+            r.remove_stinch(world[1][3]);
+        }
+        else if(r.isWumpus(world[2][1])){
+            r.remove_stinch(world[3][1]);
+            r.remove_stinch(world[2][2]);
+        }
+    }
+    else if(r.isGold(world[1][1])){
+        r.remove_gold(world[1][1]);
     }
     for(int i=0;i<4;i++){
         for(int j=0;j<4;j++){

@@ -1,4 +1,4 @@
 class worlds{
     public:
-    void worlds::worlds();
+    void worlds();
 };

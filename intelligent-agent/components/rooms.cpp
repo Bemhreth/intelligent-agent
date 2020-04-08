@@ -36,6 +36,22 @@ typedef int room[4];
 {
    room1[4]=0;
 }
+void rooms::remove_pit(room room1)
+{
+   room1[2]=0;
+}
+void rooms::remove_breath(room room1)
+{
+   room1[3]=0;
+}
+void rooms::remove_stinch(room room1)
+{
+   room1[1]=0;
+}
+void rooms::remove_gold(room room1)
+{
+   room1[0]=0;
+}
  void rooms::display(room room2)
 {
     cout << "(";
@@ -59,4 +75,8 @@ return room1[4]==1;
  bool rooms::isStinch(room room1)
 {
     return room1[1] == 1;
+}
+bool rooms::isGold(room room1)
+{
+    return room1[0] == 1;
 }
