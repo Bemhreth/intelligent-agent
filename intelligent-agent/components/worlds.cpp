@@ -22,10 +22,8 @@ int main()
     }
     while (c < 10)
     {
-        int r;
-        int f = rand() % 4;
-        v.insert(v.begin() + c,f);
-c++;
+        v.insert(v.begin() + c,rand() % 4);
+        c++;
     }
     for (auto i = 0; i < 10; i += 2)
     {
