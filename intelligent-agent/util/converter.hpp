@@ -7,5 +7,5 @@ public:
     void pop();
     void push1(char num1);
     void push(char num);
-    char *main_converter();
+    char *converter(char x[100]);
 };
