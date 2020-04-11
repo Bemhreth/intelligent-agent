@@ -32,7 +32,6 @@ namespace agent {
                 // WumpusWorld wumpusworld;
                 wumpusworld.enter();
                 myhouse = wumpusworld.house;
-                printf("Agent created");
             };
             char proof(std::vector<std::vector<util::Value>> knowledge_base, std::string crsis, char logic);
             void update_position();

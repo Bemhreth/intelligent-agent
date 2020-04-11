@@ -12,6 +12,7 @@ void Agent::update_position(){
 };
 
 void Agent::string_value_list(std::vector<std::vector<util::Value>> premise){
+    printf("\nPrinting the premises and conclusion, the last element is postfix of the conclusion\n");
     for (auto a: premise){
         for(auto b: a){
             printf("%s, ", b.name.c_str());
@@ -100,10 +101,10 @@ void Agent::play(){
 
         value_list.clear();
 
-        printf("size : %d\n", knowledge_base.size());
+        // printf("size : %d\n", knowledge_base.size());
         
         // proofing 
-        printf("cur_x = %d, cur_y=%d \n", cur_x, cur_y);
+        printf("\nCurrently at x = %d, y=%d \n", cur_x, cur_y);
         adj_rooms = adjecent_rooms(cur_x, cur_y);
           
         // printf("also here %d", cur_x);
@@ -114,11 +115,11 @@ void Agent::play(){
                  okay_rooms.push(adj);
             }
             else {
-                printf("\n%d        %d\n", adj.first, adj.second);
+                printf("\nAdjecent room at x=%d and y=%d\n", adj.first, adj.second);
                 auto str_wumpus = str("wumpus", adj);   
                 auto str_pit = str("pit", adj);
 
-                printf("x=%d, y=%d\n", adj.first, adj.second);
+                // printf("x=%d, y=%d\n", adj.first, adj.second);
                 
                 if(wumpus_alive){
                     no_wumpus = proof(knowledge_base, str_wumpus, 1);
@@ -179,7 +180,7 @@ void Agent::play(){
                     knowledge_base.push_back(std::vector<util::Value>{
                         util::Value(util::ValType::Operand, str_pit),
                         util::Value(util::ValType::Operator, "not")});   
-                    printf("okay room");
+                    printf("\n****This adjecent room is okay room****");
                 }
                 
                 printf("\n\n");     
@@ -203,7 +204,8 @@ void Agent::play(){
         cur_y = room.second; 
         update_position(); 
         printf("\n*****************************************\n");
-        printf("next x = %d, next y = %d \n", cur_x, cur_y); 
+        printf("Going to next unvisited room at x=%d, y=%d", cur_x, cur_y); 
+        printf("\n*****************************************\n");
         stop++;
     }
 };
