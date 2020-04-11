@@ -1,4 +1,4 @@
-add_library(util 
+add_library(util SHARED
     src/util/functions_header.hpp
     src/util/value.hpp
     src/util/semantic.cpp

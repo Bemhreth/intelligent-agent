@@ -1,4 +1,4 @@
-add_library(agent
+add_library(agent SHARED
     src/intelligentAgent/agent.hpp
     src/intelligentAgent/agent.cpp)
 

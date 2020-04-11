@@ -1,4 +1,4 @@
-add_library(world 
+add_library(world SHARED
     src/world/room.hpp
     src/world/world.hpp
     src/world/world.cpp)

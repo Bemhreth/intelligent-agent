@@ -33,8 +33,8 @@ namespace world {
             }
             int get_x(){return x;};
             int get_y(){return y;};
-            void set_x(int value){x = value;};
-            void set_y(int value){y = value;};
+            // void set_x(int value){x = value;};
+            // void set_y(int value){y = value;};
     };
 
 }  
