@@ -6,19 +6,44 @@ std::vector<int> v ;
 int r1,r2,r3,r4,r5,r6,r7,r8,r9,r0;
 void WumpusWorld::initialize_room(){
     // example set up
-    int c = 0,m=0;
-    srand(time(0));
+   int m=0;
+    
     for(int i=0; i < 4; i++){
         house.push_back(std::vector<Room>());
         for(int j=0; j < 4; j++){
             house[i].push_back(Room(i, j));
         }
     }
-    while (c < 10)
-    {
-        v.insert(v.begin() + c, rand() % 4);
-        c++;
+    check:
+        int c = 0;
+         srand(time(0));
+        while (c < 10)
+        {
+            v.insert(v.begin() + c, rand() % 4);
+            c++;
     }
+    for(int y=0;y<v.size();y+=2){
+     if(v.at(y)==0){
+         if(v.at(y+1)==0 or v.at(y+1)==1)
+         v.clear();
+     }
+     else if(v.at(y)==2){
+         if(v.at(y+1)==0)
+         v.clear();
+     }
+     for (int i = y + 2; i < v.size(); i += 2)
+     {
+         if (v.at(y) == v.at(i))
+         {
+             if (v.at(y + 1) == v.at(i + 1))
+                 v.clear();
+         }
+     }
+    }
+    if(v.empty()){
+        goto check;
+    }
+    else{
     for (auto i = 0; i < 10; i += 2)
     {
         if (m == 0)
@@ -105,7 +130,7 @@ void WumpusWorld::initialize_room(){
     // house[3][3].pit = 1;
     // house[3][2].breeze = 1;
     // house[2][3].breeze = 1;
-
+    }
 };
 
 void WumpusWorld::enter(){
