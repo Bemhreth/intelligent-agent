@@ -19,7 +19,8 @@ namespace world {
             char glitter;
             char agent;
             char visited;
-            Room(int x_, int y_){
+            Room(int x_, int y_)
+            {
                 x = x_;
                 y = y_;
                 wumpus = 0;
@@ -29,8 +30,7 @@ namespace world {
                 glitter = 0;
                 agent = 0;
                 visited = 0;
-                
-            }
+            };
             int get_x(){return x;};
             int get_y(){return y;};
             // void set_x(int value){x = value;};
